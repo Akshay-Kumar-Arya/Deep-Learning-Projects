@@ -14,5 +14,34 @@ Dataset is available at this link: [`Training Dataset`](http://ufldl.stanford.ed
 
 ![Images in Dataset](http://ufldl.stanford.edu/housenumbers/32x32eg.png)
 
-## Model
-There are two simple models used, one is MLP and other is CNN. Performance of both these model are compared and some random prediction from these models are also shown.
+
+## Implementation
+### Preprocessing
+  * Import the Dataset and extract the images and labels.
+  * Change label 10 to 0 that is exception present in dataset.
+  * convert dataset from channels first to channels last.
+  * convert RGB images into Grey Scale Image
+  * Plot images with labels for better visualization
+  * Color Images    ![color image](Images/color_image.png) 
+  * Grey Scale Images     ![grey scale image](Images/grey_scale_image.png)
+### Model and Training
+* There are two simple models used, one is MLP and other is CNN. 
+* MLP model contains 146,026 parameters and trained for 30 epochs.
+* Training of MLP model results with a `LOSS: 0.8575 and ACCURACY: 0.7361 and VAL LOSS: 0.9304 and VAL ACCURACY: 0.7183`
+* Training Statitics of MLP model are shown below:
+* ![MLP](Images/MLP.png)
+* CNN model contains 30,954 parameters and trained for 10 epochs.
+* Training of MLP model results with a `LOSS: 0.3966 and ACCURACY: 0.8789 and VAL LOSS: 0.4408 and VAL ACCURACY: 0.8732`
+* Training Statitics of CNN model are shown below:
+* ![CNN](Images/CNN.png)
+* In Training we can observe the better performance of CNN over an MLP model.
+### Evaluation
+* MLP model evaluation on test set `LOSS: 1.0645 and ACCURACY: 0.6939`
+* CNN model evaluation on test set `LOSS: 0.4665 and ACCURACY: 0.8707`
+### Results
+* The performance of CNN with fewer parameter and fewer training epochs is far better then the MLP model.
+* One reason of that is CNN is better at generalising its learning at one part of image to other part of image due to shared parameters.
+### Prediction
+* Some random prediction from these models are shown.
+
+![prediction](Images/prediction.png)
