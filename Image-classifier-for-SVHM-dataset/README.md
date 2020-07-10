@@ -1,4 +1,9 @@
-# Image-classifier-for-SVHM-dataset
+# Image-classifier-for-SVHN-dataset
+
+## Why to do this project?
+* To understand the difference between the performance of MLP and CNN model on image datasets.
+* To brush up skills in MLP and CNN model construction, training, evaluation and prediction using Tensorflow 2.2.0
+* Preprocessing and prediction part also brush up your skills in using numpy and matplotlib.
 
 ## SVHN Dataset
 SVHN is a real-world image dataset for developing machine learning and object recognition algorithms with minimal requirement on data preprocessing and formatting.
@@ -22,8 +27,10 @@ Dataset is available at this link: [`Training Dataset`](http://ufldl.stanford.ed
   * convert dataset from channels first to channels last.
   * convert RGB images into Grey Scale Image
   * Plot images with labels for better visualization
-  * Color Images    ![color image](Images/color_image.png) 
-  * Grey Scale Images     ![grey scale image](Images/grey_scale_image.png)
+  * Color Images are shown below:
+  * ![color image](Images/color_image.png) 
+  * Grey Scale Images are shown below:
+  * ![grey scale image](Images/grey_scale_image.png)
 ### Model and Training
 * There are two simple models used, one is MLP and other is CNN. 
 * MLP model contains 146,026 parameters and trained for 30 epochs.
