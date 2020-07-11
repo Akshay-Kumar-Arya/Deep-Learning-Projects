@@ -34,7 +34,7 @@ English + TAB + The Other Language + TAB + Attribution
 * After preprocessing our dataset looks like:
 * ![preprocessed text](Images/Preprocessed_text.png)
 
-### Data pipeline
+### Data Pipelining
 * We will import a [pre-trained English word embedding](https://tfhub.dev/google/tf2-preview/nnlm-en-dim128-with-normalization/1) module from TensorFlow Hub. This embedding takes a batch of text tokens in a 1-D tensor of strings as input. It then embeds the separate tokens into a 128-dimensional space.
 * Create a random training and validation set split of the data.
 * Load the training and validation sets into a `tf.data.Dataset` object.
@@ -42,4 +42,21 @@ English + TAB + The Other Language + TAB + Attribution
 * Use filter function to remove the english sequence more than 13 words.
 * Use map function to pad the english sequence of embedding before the sequence.
 * Batch both training and validation Datasets with a batch size of 16
+
+
+### Model and Training
+* The custom model consists of an encoder RNN and a decoder RNN.
+![model](Images/neural_translation_model_and_key.png)
+#### Encoder Model
+* The encoder takes words of an English sentence as input, and uses a pre-trained word embedding to embed the words into a 128-dimensional space. 
+* To indicate the end of the input sentence, a special end token (in the same 128-dimensional space) is passed in as an input. This token is a TensorFlow Variable that is learned in the training phase (unlike the pre-trained word embedding, which is frozen).
+* Model summary:
+![encoder model](Images/encoder_model.png)
+
+#### Decoder Model
+* The decoder RNN takes the internal state of the encoder network as its initial state. 
+* A start token is passed in as the first input, which is embedded using a learned German word embedding. 
+* The decoder RNN then makes a prediction for the next German word, which during inference is then passed in as the following input, and this process is repeated until the special <end> token is emitted from the decoder.
+* Model summary:
+![decoder model](Images/decoder_model.png)
 
