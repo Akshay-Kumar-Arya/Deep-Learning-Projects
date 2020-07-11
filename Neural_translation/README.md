@@ -47,6 +47,10 @@ English + TAB + The Other Language + TAB + Attribution
 ### Model and Training
 * The custom model consists of an encoder RNN and a decoder RNN.
 ![model](Images/neural_translation_model_and_key.png)
+
+#### Custom Layer
+* Construct a custom layer for end token embedding for encoder model using Layer subclassing API in Tensorflow.
+
 #### Encoder Model
 * The encoder takes words of an English sentence as input, and uses a pre-trained word embedding to embed the words into a 128-dimensional space. 
 * To indicate the end of the input sentence, a special end token (in the same 128-dimensional space) is passed in as an input. This token is a TensorFlow Variable that is learned in the training phase (unlike the pre-trained word embedding, which is frozen).
@@ -60,3 +64,15 @@ English + TAB + The Other Language + TAB + Attribution
 * Model summary:
 ![decoder model](Images/decoder_model.png)
 
+#### Custom Training Loop
+* Define a function that takes a Tensor batch of German data (as extracted from the training Dataset), and returns a tuple containing German inputs and outputs for the decoder model (refer to schematic diagram above).
+* Define a function that computes the forward and backward pass for your translation model. Also compute gradients using `Tensorflow Gradient Tape`.
+* Define and run a custom training loop for 7 epochs.
+* The learning curves for loss vs epoch for both training and validation sets is shown below:
+* ![loss](Images/Training_loss.png)
+
+### Prediction
+* Now it's time to put our model into practice! 
+* Run translation for five randomly sampled English sentences from the dataset.
+* Preprocess the english sentence and predict using the model.
+* ![prediction](Images/Prediction.png)
