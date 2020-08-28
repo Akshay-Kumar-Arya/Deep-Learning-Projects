@@ -46,14 +46,14 @@ we can start building our feature set. We need to use previous monthly sales dat
 * But there is one more step before scaling. We should split our data into train and test sets. As the test set, we have selected the last 6 months’ sales.
 * We will use MinMaxScaler from sklearn, which will scale each feature between -1 and 1.
 
-### Building LSTM Model
+## Building LSTM Model
 * Create feature and label sets from scaled datasets.
 * Our Model looks like:
 * ![Model_summary](Images/Model_summary.png)
 * Model loss decreases over time:
 * ![Model_Loss](Images/Model_loss.png)
 
-### Prediction on test set
+## Prediction on test set
 prediction on test set looks similar to actual value:
 * ![Prediction](Images/Prediction.png)
 * Results look similar but it doesn’t tell us much because these are scaled data that shows the difference. We can see the actual sales prediction by rescaling it to original form. After rescaling Actual vs predicted sales looks like:
