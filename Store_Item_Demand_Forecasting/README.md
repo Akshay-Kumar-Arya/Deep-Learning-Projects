@@ -18,7 +18,7 @@ Our Dataset looks like:
 ### Data wrangling
 Our task is to forecast monthly total sales. We need to aggregate our data at the monthly level and sum up the sales column.
 * After Data wrangling our data looks like this:
-*![Dataset pic](Images/Monthly_data.png)
+* ![Dataset pic](Images/Monthly_data.png)
 
 ### Data Transformation
 To model our forecast easier and more accurate, we will do the transformations below:
@@ -38,3 +38,26 @@ Obviously, it is not stationary and has an increasing trend over the months. One
 * ![Monthly sales difference chart](Images/Monthly_difference.png)
 Perfect! Our Monthly sales difference is stationary.
 
+#### Converting from time series to supervised for having the feature set of our LSTM model
+we can start building our feature set. We need to use previous monthly sales data to forecast the next ones. The look-back period may vary for every model. Ours will be 12 for this project. Our Dataframe with features look like this:
+* ![Dataset pic](Images/Dataset_feature.png)
+
+#### Scale the data
+* But there is one more step before scaling. We should split our data into train and test sets. As the test set, we have selected the last 6 months’ sales.
+* We will use MinMaxScaler from sklearn, which will scale each feature between -1 and 1.
+
+### Building LSTM Model
+* Create feature and label sets from scaled datasets.
+* Our Model looks like:
+* ![Model_summary](Images/Model_summary.png)
+* Model loss decreases over time:
+* ![Model_Loss](Images/Model_loss.png)
+
+### Prediction on test set
+prediction on test set looks similar to actual value:
+* ![Prediction](Images/Prediction.png)
+Results look similar but it doesn’t tell us much because these are scaled data that shows the difference. We can see the actual sales prediction by rescaling it to original form. After rescaling Actual vs predicted sales looks like:
+* ![Prediction](Images/Actual_vs_predicted.png)
+Actual vs predicted sales chart for better visualization:
+* ![Prediction](Images/Predicted_sales_chart.png)
+One improvement we can do for this model is to add holidays, breaks, and other seasonal effects. They can be simply added as a new feature.
