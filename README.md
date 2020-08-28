@@ -6,3 +6,6 @@ You can do these projects, as step by step guide is included in their README.md 
 
 ## Text Translation
 * [Neural Translation from English to German](Neural_translation/)
+
+## Time Series Forecasting
+* [Store Item Demand Forecasting](Store_Item_Demand_Forecasting/)
