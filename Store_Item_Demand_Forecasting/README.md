@@ -56,8 +56,8 @@ we can start building our feature set. We need to use previous monthly sales dat
 ### Prediction on test set
 prediction on test set looks similar to actual value:
 * ![Prediction](Images/Prediction.png)
-Results look similar but it doesn’t tell us much because these are scaled data that shows the difference. We can see the actual sales prediction by rescaling it to original form. After rescaling Actual vs predicted sales looks like:
+* Results look similar but it doesn’t tell us much because these are scaled data that shows the difference. We can see the actual sales prediction by rescaling it to original form. After rescaling Actual vs predicted sales looks like:
 * ![Prediction](Images/Actual_vs_predicted.png)
-Actual vs predicted sales chart for better visualization:
+* Actual vs predicted sales chart for better visualization:
 * ![Prediction](Images/Predicted_sales_chart.png)
-One improvement we can do for this model is to add holidays, breaks, and other seasonal effects. They can be simply added as a new feature.
+* One improvement we can do for this model is to add holidays, breaks, and other seasonal effects. They can be simply added as a new feature.
